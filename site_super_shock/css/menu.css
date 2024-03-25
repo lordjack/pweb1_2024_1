@@ -1,0 +1,60 @@
+#menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    z-index: 100;
+    transform: translateX(-200px);
+    transition: transform 0.3s ease-in-out;
+}
+
+#menu-lateral.ativa {
+    transform: translateX(0);
+}
+
+#botao-menu {
+    position: absolute;
+    top: 6px;
+    left: 32px;
+    cursor: pointer;
+}
+
+#menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-lateral ul li {
+    margin-bottom: 10px;
+}
+
+#menu-lateral ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu-lateral ul li a:hover {
+    color: #ccc;
+}
+
+
+.item {
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    transition: background-color 0.2s;
+    padding-left: 8px;
+    color: white;
+}
+
+.item:hover {
+    background-color: #80808054;
+    width: 96%;
+}

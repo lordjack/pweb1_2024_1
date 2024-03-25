@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Super Shock</title>
-    <link rel="stylesheet" href="css/page_home.css" />
-  </head>
-  <body>
-    <header>
-      <div class="content-header">
-        <img src="img/icone_tela_principal.jpeg" alt="super shock" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Shock</title>
+  <link rel="stylesheet" href="css/page_home.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+
+  <script>
+    function mostrarMenu() {
+      const menuLateral = document.getElementById("menu-lateral");
+      menuLateral.classList.toggle("ativa");
+
+      const iconmenu = document.getElementById("img-menu");
+
+      if (iconmenu.src.endsWith('img/icon-hamburger-menu.png')) {
+        iconmenu.src = 'img/icon-close-menu.png';
+      } else {
+        iconmenu.src = 'img/icon-hamburger-menu.png';
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="content-header">
+      <img src="img/icone_tela_principal.jpeg" alt="super shock" />
+    </div>
+  </header>
+  <main>
+    <nav>
+      <div id="menu-lateral">
+        <b id="botao-menu" onclick="mostrarMenu()" style="border:none!important;">
+          <img id="img-menu" src="img/icon-hamburger-menu.png" style="width:28px;margin-left: 180px;" alt="Menu">
+        </b>
+        <ul id="menu-items">
+          <li class="item">
+            <a href="#"> Início </a>
+          </li>
+          <li class="item">
+            <a href="#"> Super Shock </a>
+          </li>
+          <li class="item">
+            <a href="#"> Filosofando sobre o Super Shock</a>
+          </li>
+          <li class="item">
+            <a href="#"> Quem somos</a>
+          </li>
+          <li class="item">
+            <a href="#">Contato</a>
+          </li>
+        </ul>
       </div>
-    </header>
-    <main>
-      <h1 class="titulo">Super Shock</h1>
-      <nav></nav>
-
-      menu: Início Super Shock Filosofando sobre o Super Shock Quem somos
-      Contato Imagem d o Vargil Hawkings Fonte: Aficionados Imagem do Super
-      Choque voando com a tampa de um bueiro Fonte: Legião dos Heriós
-
-      <section class="container">
-        <div class="content-left">
-          <img src="img/historia.jpg" class="img" alt="Historia Super Choque" />
-          <a href="#">Fonte: Observatório do Cinema</a>
-        </div>
-        <br />
+    </nav>
+    <h1 class="titulo">Super Shock</h1>
+    <section class="conteudo-1">
+      <div class="content">
+        <img src="img/historia.jpg" class="img" alt="Historia Super Choque" />
+        <a href="#">Fonte: Observatório do Cinema</a>
+      </div>
+      <div class="content">
         <h1>História do Desenho</h1>
         <p class="texto">
           O Super Choque - ou Static, como é originalmente conhecido - é um
@@ -45,55 +82,46 @@
           principalmente aqui no Brasil, fazendo parte da infância de muitas
           pessoas. (Nostalgia) (Wikipedia) (NerdBox)
         </p>
-      </section>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <section class="container">
-        <div class="conteudo-preto">
-          <div class="content-right">
-            <a href="#">
-              <img
-                src="img/historia2.jpg"
-                class="img"
-                alt="Historia2 Super Choque"
-              />
-            </a>
-            <a href="#">Fonte: Observatório do Cinema</a>
-          </div>
-          <h1>História do Personagem</h1>
-          <p>
-            Virgil Ovid Hawkins (Super Shock) é um jovem negro, nascido e criado
-            na cidade de Dakota City. Ele era um garoto com poucos amigos,
-            bastante inteligente e que tinha muito interesse em quadrinhos e
-            RPG's, o que fazia com que ele se enquadrasse no clássico
-            estereótipo de nerd. Na escola, o garoto sofria muito bullying, e
-            buscando se proteger e se vingar daqueles que lhe faziam mal, Virgil
-            buscou ajuda com gangues (das quais sua família sempre tinha tentado
-            o proteger). Porém, ao chegar no local combinado para encontrar os
-            criminosos, ele se deparou com uma briga entre “facções” (que na
-            verdade era uma emboscada da polícia). Os oficiais dispararam um
-            tiro que acertou um cilindro com um gás lacrimogênio “diferenciado”,
-            que continha alguma substância que fez com que o garoto - e todos os
-            que estavam presentes no local e sobreviveram - adquirissem super
-            poderes. Virgil passou então a possuir um certo controle do
-            eletromagnetismo, e como sempre amou HQs, decidiu se tornar um super
-            herói e adotar o nome de Super Choque. A partir daí, o garoto passou
-            a combater o crime em sua cidade e viver uma vida dupla, sendo parte
-            de seu dia um estudante comum e outra parte um super herói admirado
-            por todos. (Nostalgia) (Wikipedia) (NerdBox)
-          </p>
-        </div>
-      </section>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <section class="container">
-        <div class="content-left">
-          <img
-            src="img/historia2.jpg"
-            class="img"
-            alt="Historia2 Super Choque"
-          />
-          <a href="#">Fonte: Observatório do Cinema</a>
-        </div>
-
+      </div>
+    </section>
+    <section class="conteudo-2">
+      <div class="content">
+        <h1>História do Personagem</h1>
+        <p>
+          Virgil Ovid Hawkins (Super Shock) é um jovem negro, nascido e criado
+          na cidade de Dakota City. Ele era um garoto com poucos amigos,
+          bastante inteligente e que tinha muito interesse em quadrinhos e
+          RPG's, o que fazia com que ele se enquadrasse no clássico
+          estereótipo de nerd. Na escola, o garoto sofria muito bullying, e
+          buscando se proteger e se vingar daqueles que lhe faziam mal, Virgil
+          buscou ajuda com gangues (das quais sua família sempre tinha tentado
+          o proteger). Porém, ao chegar no local combinado para encontrar os
+          criminosos, ele se deparou com uma briga entre “facções” (que na
+          verdade era uma emboscada da polícia). Os oficiais dispararam um
+          tiro que acertou um cilindro com um gás lacrimogênio “diferenciado”,
+          que continha alguma substância que fez com que o garoto - e todos os
+          que estavam presentes no local e sobreviveram - adquirissem super
+          poderes. Virgil passou então a possuir um certo controle do
+          eletromagnetismo, e como sempre amou HQs, decidiu se tornar um super
+          herói e adotar o nome de Super Choque. A partir daí, o garoto passou
+          a combater o crime em sua cidade e viver uma vida dupla, sendo parte
+          de seu dia um estudante comum e outra parte um super herói admirado
+          por todos. (Nostalgia) (Wikipedia) (NerdBox)
+        </p>
+      </div>
+      <div class="content">
+        <a href="#">
+          <img src="img/historia2.jpg" class="img" alt="Historia2 Super Choque" />
+        </a>
+        <a href="#">Fonte: Observatório do Cinema</a>
+      </div>
+    </section>
+    <section class="conteudo-1">
+      <div class="content">
+        <img src="img/historia2.jpg" class="img" alt="Historia2 Super Choque" />
+        <a href="#">Fonte: Observatório do Cinema</a>
+      </div>
+      <div class="content">
         <h1>Curiosidades sobre o Personagem</h1>
         <p>
           O nome do Super Choque (Virgil Ovid Hawkins) é uma homenagem ao
@@ -110,18 +138,10 @@
           habilidade que tinha ganhado com a prática dessa atividade para se
           locomover usando seus poderes. (Nostalgia) (Wikipedia) (NerdBox)
         </p>
-      </section>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <section>
-        <div class="content-right">
-          <img
-            src="img/super_poder.jpeg"
-            class="img"
-            alt="Historia2 Super Choque"
-          />
-          <a href="#">Fonte: Observatório do Cinema</a>
-        </div>
-
+      </div>
+    </section>
+    <section class="conteudo-2">
+      <div class="content">
         <h1>Super Poderes</h1>
         <p>
           Os poderes do herói, como o próprio nome já sugere, se baseiam na
@@ -136,9 +156,18 @@
         </p>
         Fonte: NerdBox Imagem do Vargil Hawkings Fonte: Legião dos Heróis
         Projeto Programação Web 1 Quem Somos?
-      </section>
-    </main>
+      </div>
+      <div class="content">
+        <img src="img/super_poder.jpeg" class="img" alt="Historia2 Super Choque" />
+        <a href="#">Fonte: Observatório do Cinema</a>
+      </div>
+    </section>
+  </main>
 
-    <footer></footer>
-  </body>
+  <footer class="rodape">
+    <span>Projeto Desenvolvimento Web 1 </span>
+    <a href="#">Quem Somos?</a>
+  </footer>
+</body>
+
 </html>

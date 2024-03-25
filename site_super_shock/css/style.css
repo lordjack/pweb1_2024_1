@@ -1,0 +1,6 @@
+.left, .right {
+    max-width: 50%;
+    margin: 1.5rem;
+    display: block;
+
+}

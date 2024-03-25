@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HZC | Home</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+
+    <style>
+        #menu-lateral {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            z-index: 100;
+            transform: translateX(-200px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #menu-lateral.ativa {
+            transform: translateX(0);
+        }
+
+        #botao-menu {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        #menu-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-lateral ul li {
+            margin-bottom: 10px;
+        }
+
+        #menu-lateral ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #menu-lateral ul li a:hover {
+            color: #ccc;
+        }
+    </style>
+    <script>
+        /*
+        const menuButton = document.querySelector('.header__menu');
+        const menu = document.querySelector('.sidebar-menu');
+
+        menuButton = addEventListener('click', () => {
+            menu.classList.toggle('sidebar-menu--active');
+        })
+        */
+
+        function mostrarMenu() {
+            const menuLateral = document.getElementById("menu-lateral");
+            menuLateral.classList.toggle("ativa");
+        }
+
+    </script>
+</head>
+
+<body>
+    teste
+    <div id="menu-lateral">
+        <b id="botao-menu" onclick="mostrarMenu()" style="border:none!important;">
+            Menu <img src="img/icon-hamburger-menu.png" style="width:28px;margin-left: 180px;" alt="Menu">
+        </b>
+        <ul>
+            <li><a href="#">Página 1</a></li>
+            <li><a href="#">Página 2</a></li>
+            <li><a href="#">Página 3</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

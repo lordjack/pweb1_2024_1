@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Texto e Imagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .item {
+            width: 45%;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .item-content {
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="item-content">
+                <h2>Exemplo 1</h2>
+                <p>Texto do exemplo 1...</p>
+            </div>
+            <img src="https://via.placeholder.com/300" alt="Imagem do exemplo 1">
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/300" alt="Imagem do exemplo 2">
+            <div class="item-content">
+                <h2>Exemplo 2</h2>
+                <p>Texto do exemplo 2...</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <h2>Exemplo 3</h2>
+                <p>Texto do exemplo 3...</p>
+            </div>
+            <img src="https://via.placeholder.com/300" alt="Imagem do exemplo 3">
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/300" alt="Imagem do exemplo 4">
+            <div class="item-content">
+                <h2>Exemplo 4</h2>
+                <p>Texto do exemplo 4...</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto e Imagem Lado a Lado</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content left">
+            <p>Texto 1</p>
+            <img src="imagem1.jpg" alt="Imagem 1">
+        </div>
+        <div class="content right">
+            <img src="imagem2.jpg" alt="Imagem 2">
+            <p>Texto 2</p>
+        </div>
+        <div class="content left">
+            <p>Texto 3</p>
+            <img src="imagem3.jpg" alt="Imagem 3">
+        </div>
+        <div class="content right">
+            <img src="imagem4.jpg" alt="Imagem 4">
+            <p>Texto 4</p>
+        </div>
+        <div class="content left">
+            <img src="imagem5.jpg" alt="Imagem 5">
+            <p>Texto abaixo</p>
+        </div>
+    </div>
+</body>
+
+</html>
+-->
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem ao Lado do Texto</title>
+    <style>
+        .texto-esquerda {
+            clear: both;
+        }
+
+        .imagem-esquerda {
+            float: left;
+            margin-right: 10px;
+            /* Espaço entre a imagem e o texto */
+        }
+
+        .texto-direita {
+            clear: both;
+            text-align: right;
+        }
+
+        .imagem-direita {
+            float: right;
+            margin-left: 10px;
+            /* Espaço entre a imagem e o texto */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="texto-esquerda">
+            <img src="caminho/para/imagem.jpg" alt="Imagem" class="imagem-esquerda">
+            <p>Texto à esquerda da imagem.</p>
+        </div>
+
+        <div class="texto-direita">
+            <p>Texto à direita da imagem.</p>
+            <img src="caminho/para/outra_imagem.jpg" alt="Outra Imagem" class="imagem-direita">
+        </div>
+    </div>
+
+</body>
+
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de texto e imagem</title>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            max-width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <img src="imagem.jpg" alt="Imagem" class="image">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <img src="imagem.jpg" alt="Imagem" class="image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+        </div>
+    </div>
+</body>
+
+</html> -->
