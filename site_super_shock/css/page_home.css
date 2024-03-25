@@ -1,40 +1,52 @@
-header{
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100px;
+header {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
 }
 
-.content-header img{
-    width: 12rem;
-    height: 12rem;
-    border-radius: 50%;
-    margin-top: 25%;
+.content-header img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  margin-top: 25%;
 }
 
-.titulo{
-     text-align: center;
-     font-size: 3rem;
-     margin-top: 8rem;
+.titulo {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 8rem;
 }
 
-.content-left, .content-right{
-    max-width: 45%;
-    margin: 1.1rem;
-    display: block;
-    text-align: justify;
-    font-style: italic;
+.content-left {
+  float: left;
 }
 
-.content-left{
-    float: left;
+.container {
+  display: flex;
 }
 
-.content-right{
-    float: right;
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content-right {
+  float: right;
 }
 
 img {
-    width: 100%;
+  width: 80%;
+}
+
+.texto::after {
+  content: "\a";
+  white-space: pre;
+}
+.conteudo-preto {
+  background-color: black;
+  color: white;
+  height: 500px;
 }
