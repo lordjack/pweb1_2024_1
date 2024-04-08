@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Super Shock</title>
     <link rel="stylesheet" href="css/page_home.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+
+    <script>
+      function mostrarMenu(){
+        const menuLateral = document.getElementById('menu-lateral');
+        menuLateral.classList.toggle('ativa');
+
+        const iconMenu = document.getElementById('img-menu');
+        
+        if(iconMenu.src.endsWith("img/icon-hamburger-menu.png")){
+          iconMenu.src = "img/icon-close-menu.png";
+        } else {
+          iconMenu.src = "img/icon-hamburger-menu.png";
+        }
+      }
+
+    </script>
   </head>
   <body>
     <header>
@@ -14,18 +31,24 @@
       </div>
     </header>
     <main>
+      <nav>
+        <div id="menu-lateral">
+          <span class="botao-menu" onclick="mostrarMenu()" >
+            <img id="img-menu" src="img/icon-hamburger-menu.png" alt="menu">
+          </span>
+          <ul class="menu-itens">
+            <li><a href="#">Início </a></li>
+            <li><a href="#">Super Shock </a></li>
+            <li><a href="#">Filosofando sobre o Super Shock </a></li>
+            <li><a href="#">Quem somos </a></li>
+            <li><a href="#">Contato </a></li>
+          </ul>
+        </div>
+      </nav>
       <h1 class="titulo">Super Shock</h1>
-      <nav></nav>
-
-      menu: Início Super Shock Filosofando sobre o Super Shock Quem somos
-      Contato
-      Imagem d
-      o Vargil Hawkings Fonte: Aficionados Imagem do Super Choque
-      voando com a tampa de um bueiro Fonte: Legião dos Heriós
-   
       <section class="conteudo-1">
         <div class="content">
-            <img src="img/historia.jpg" class="img" alt="Historia Super Choque" />
+          <img src="img/historia.jpg" class="img" alt="Historia Super Choque" />
           <a href="#">Fonte: Observatório do Cinema</a>
         </div>
         <div class="content">
@@ -76,17 +99,25 @@
           </p>
         </div>
         <div class="content">
-            <img src="img/historia2.jpg" class="img" alt="Historia2 Super Choque" />
+          <img
+            src="img/historia2.jpg"
+            class="img"
+            alt="Historia2 Super Choque"
+          />
           <a href="#">Fonte: Observatório do Cinema</a>
         </div>
       </section>
 
       <section class="conteudo-1">
         <div class="content">
-            <img src="img/curiosidades.jpeg" class="img" alt="Curiosidade Super Choque" />
+          <img
+            src="img/curiosidades.jpeg"
+            class="img"
+            alt="Curiosidade Super Choque"
+          />
           <a href="#">Fonte: Observatório do Cinema</a>
         </div>
-         <div class="content">
+        <div class="content">
           <h1>Curiosidades sobre o Personagem</h1>
           <p>
             O nome do Super Choque (Virgil Ovid Hawkins) é uma homenagem ao
@@ -126,14 +157,14 @@
         </div>
         <div class="content">
           <img src="img/super_poder.jpeg" class="img" alt="Super Poder" />
-        <a href="#">Fonte: Legião dos Herois</a>
-      </div>
+          <a href="#">Fonte: Legião dos Herois</a>
+        </div>
       </section>
     </main>
 
     <footer class="rodape">
-        <span>Projeto Desenvolvimento Web 1</span>
-        <a href="#">Quem somos?</a>
+      <span>Projeto Desenvolvimento Web 1</span>
+      <a href="#">Quem somos?</a>
     </footer>
   </body>
 </html>
