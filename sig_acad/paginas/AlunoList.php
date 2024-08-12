@@ -7,6 +7,11 @@
     $db = new db();
     $db->conn();
 
+    if(!empty($_GET['id'])){
+        $db->destroy($_GET['id']);
+    }
+
+
     $dados = $db->all();
 
     //var_dump($dados);
@@ -45,7 +50,6 @@
     </thead>
     <tbody>
         <?php 
-
         foreach($dados as $item){
            // var_dump($item);
             //exit;
@@ -54,6 +58,8 @@
                     <td>$item->nome</td>
                     <td>$item->cpf</td>
                     <td>$item->telefone</td>
+                    <td><a href='AlunoForm.php?id=$item->id'>Editar</a></td>
+                    <td><a onclick='return confirm(\"Deseja Excluir?\")' href='AlunoList.php?id=$item->id'>Deletar</a></td>
                 </tr>";
          }
         ?>

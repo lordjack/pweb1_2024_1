@@ -17,6 +17,12 @@
         ]);
     }
 
+    if(!empty($_GET['id'])){
+        $data = $db->find($_GET['id']);
+       // var_dump($data);
+       // exit;
+    }
+
 ?>
 
 <div class="col">
@@ -28,6 +34,7 @@
         <label for="nome" class="form-label">Nome</label>
         <input type="text" 
             class="form-control" name="nome"
+            value="<?php echo !empty($data->nome) ? $data->nome : "" ?>"
             placeholder="Nome">
         </div>
 
@@ -35,6 +42,7 @@
         <label for="cpf" class="form-label">CPF</label>
         <input type="text" class="form-control"
                 name="cpf"
+                value="<?php echo !empty($data->cpf) ? $data->cpf : "" ?>"
             placeholder="000.555.000-55">
         </div>
 
@@ -42,6 +50,7 @@
         <label for="telefone" class="form-label">Telefone</label>
         <input type="text" 
             class="form-control" name="telefone"
+            value="<?php echo !empty($data->telefone) ? $data->telefone : "" ?>"
             placeholder="(49) 98800-5500">
         </div>
 

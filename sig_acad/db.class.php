@@ -62,6 +62,48 @@ class db {
         return $st->fetchAll(PDO::FETCH_CLASS);
     }
 
+    function destroy($id){
+       // var_dump($id);
+       // exit;
+        $conn = $this->conn();
+        $sql = "DELETE FROM aluno WHERE id = ?";
+
+        $st = $conn->prepare($sql);
+        $st->execute([$id]);
+
+    }
+
+    function find($id){
+     
+        $conn = $this->conn();
+        $sql = "SELECT * FROM aluno WHERE id = ?";
+
+        $st = $conn->prepare($sql);
+        $st->execute([$id]);
+
+        return $st->fetchObject();
+    }
+
+    function update($dados){
+     
+        $conn = $this->conn();
+        $sql = "UPDATE aluno SET
+              nome=?, telefone=?, cpf=?
+              WHERE id = ?";
+
+        $st = $conn->prepare($sql);
+        $st->execute([
+            $dados['nome'],
+            $dados['telefone'],
+            $dados['cpf'],
+            $dados['id'],
+        ]);
+
+        return $st->fetchObject();
+    }
+    
+    
+
 }
 
 ?>
