@@ -38,24 +38,31 @@ if (!empty($_GET['id'])) {
 
 <div class="col">
 
-    <form action="AlunoForm.php" method="POST">
-        <h3>Formulário Aluno</h4>
+    <form action="UserRegister.php" method="POST">
+        <h3>Registrar Usuario</h4>
 
             <div class="mb-3">
-                <input type="hidden" name="id" value="<?php echo !empty($data->id) ? $data->id : "" ?>">
-
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="nome" value="<?php echo !empty($data->nome) ? $data->nome : "" ?>" placeholder="Nome">
+                <input type="text"
+                  class="form-control"
+                  name="nome"
+                  placeholder="Nome">
             </div>
 
             <div class="mb-3">
                 <label for="cpf" class="form-label">CPF</label>
-                <input type="text" class="form-control" name="cpf" value="<?php echo !empty($data->cpf) ? $data->cpf : "" ?>" placeholder="000.555.000-55">
+                <input type="text"
+                   class="form-control"
+                   name="cpf"
+                   placeholder="000.555.000-55">
             </div>
 
             <div class="mb-3">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" class="form-control" name="telefone" value="<?php echo !empty($data->telefone) ? $data->telefone : "" ?>" placeholder="(49) 98800-5500">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password"
+                  class="form-control"
+                  name="senha"
+                  placeholder="******">
             </div>
 
             <button type="submit" class="btn btn-success">Salvar</button>

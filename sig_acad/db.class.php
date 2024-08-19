@@ -101,9 +101,45 @@ class db {
 
         return $st->fetchObject();
     }
+
+    function search($data){
+     
+        $tipo = $data['tipo'];
+        $valor = $data['valor'];
+
+        $conn = $this->conn();
+        $sql = "SELECT * FROM aluno WHERE $tipo LIKE ?";
+
+        $st = $conn->prepare($sql);
+        $st->execute(["%$valor%"]);
+
+       // var_dump($sql);
+        //exit;
+        return $st->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    function login($data){
+     
+        $conn = $this->conn();
+        $sql = "SELECT * FROM aluno WHERE cpf LIKE ?";
+
+        $st = $conn->prepare($sql);
+        $st->execute([$data['cpf']]);
+
+        //var_dump($sql);
+        //exit;
+        $result = $st->fetchObject();
+
+        if(password_verify($data['senha'], $result->senha)){
+            return $result;
+        } else {
+            return "Error";
+        }
+        
+    }
+
+
     
     
 
 }
-
-?>
