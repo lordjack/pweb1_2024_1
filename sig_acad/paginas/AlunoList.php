@@ -1,22 +1,23 @@
 <?php
-include './aula03_funcao.php';
-include "../db.class.php";
+include './funcao.php';
+include "../Util.php";
 
+verificar();
 head();
 
 $db = new db();
 $db->conn();
 
 if (!empty($_GET['id'])) {
-    $db->destroy($_GET['id']);
+    $db->destroy("aluno",$_GET['id']);
 }
 
 if (!empty($_POST)) {
     //  var_dump($_POST);
     //  exit;
-    $dados = $db->search($_POST);
+    $dados = $db->search("aluno",$_POST);
 } else {
-    $dados = $db->all();
+    $dados = $db->all("aluno");
 }
 ?>
 

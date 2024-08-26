@@ -1,7 +1,8 @@
 <?php
-include "./aula03_funcao.php";
-include "../db.class.php";
+include "./funcao.php";
+include "../Util.php";
 
+verificar();
 head();
 
 $db = new db();
@@ -10,7 +11,7 @@ $db->conn();
 if (!empty($_POST['id'])) {
 
     //var_dump($_POST);
-    $db->update([
+    $db->update("aluno",[
         'nome' => $_POST['nome'],
         'telefone' => $_POST['telefone'],
         'cpf' => $_POST['cpf'],
@@ -20,7 +21,7 @@ if (!empty($_POST['id'])) {
     
 } else  if (!empty($_POST)) {
     //var_dump($_POST);
-    $db->insert([
+    $db->insert("aluno",[
         'nome' => $_POST['nome'],
         'telefone' => $_POST['telefone'],
         'cpf' => $_POST['cpf'],
@@ -29,7 +30,7 @@ if (!empty($_POST['id'])) {
 }
 
 if (!empty($_GET['id'])) {
-    $data = $db->find($_GET['id']);
+    $data = $db->find("aluno",$_GET['id']);
     // var_dump($data);
     // exit;
 }

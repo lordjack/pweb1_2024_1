@@ -1,5 +1,5 @@
 <?php
-include "./aula03_funcao.php";
+include "./funcao.php";
 include "../db.class.php";
 
 head();
@@ -7,35 +7,24 @@ head();
 $db = new db();
 $db->conn();
 
-if (!empty($_POST['id'])) {
-
-    //var_dump($_POST);
-    $db->update([
-        'nome' => $_POST['nome'],
-        'telefone' => $_POST['telefone'],
-        'cpf' => $_POST['cpf'],
-        'id' => $_POST['id'],
-    ]);
-    header('location: AlunoList.php');
+if (!empty($_POST)) {
     
-} else  if (!empty($_POST)) {
-    //var_dump($_POST);
-    $db->insert([
-        'nome' => $_POST['nome'],
-        'telefone' => $_POST['telefone'],
-        'cpf' => $_POST['cpf'],
-    ]);
-    header('location: AlunoList.php');
-}
+    if($_POST['senha'] === $_POST['senha_c']){
 
-if (!empty($_GET['id'])) {
-    $data = $db->find($_GET['id']);
-    // var_dump($data);
-    // exit;
-}
+       // var_dump($_POST);
+      //  exit;
+        $_POST['senha'] = password_hash($_POST['senha'],PASSWORD_BCRYPT);
+        unset( $_POST['senha_c']);
+
+        $db->insert("usuario",$_POST);
+
+        header('location: LoginForm.php');
+    } else {
+        echo "<b style='color:red'>As senhas não conhecidem</b>";
+    }
+} 
 
 ?>
-
 <div class="col">
 
     <form action="UserRegister.php" method="POST">
@@ -65,8 +54,16 @@ if (!empty($_GET['id'])) {
                   placeholder="******">
             </div>
 
+            <div class="mb-3">
+                <label for="senha_c" class="form-label">Senha Confirmar</label>
+                <input type="password"
+                  class="form-control"
+                  name="senha_c"
+                  placeholder="******">
+            </div>
+
             <button type="submit" class="btn btn-success">Salvar</button>
-            <a class="btn btn-primary" href="./AlunoList.php">Voltar</a>
+            <a class="btn btn-primary" href="./LoginForm.php">Voltar</a>
     </form>
 </div>
 

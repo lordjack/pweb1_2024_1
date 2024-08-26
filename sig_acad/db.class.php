@@ -29,32 +29,50 @@ class db {
         }
     }
 
-    function insert($dados){
-        // INSERT INTO aluno(nome,telefone,cpf) 
-	    // VALUES ('Maria','49 8800-5501','002.555.000-11');
-	
+    function insert($tabela,$dados){
+   
         //var_dump($dados); //retorna o valor da variavel
         //exit; //para a execução do codigo-fonte
         $conn = $this->conn();
 
-        $sql = "INSERT INTO aluno(nome,telefone,cpf) ";
+        $sql = "INSERT INTO $tabela ( ";
 
-        $sql .= "VALUES (?,?,?)";
+        $flag = 0;
+        foreach($dados as $campo => $valor){
+            if($flag ==0){
+                $sql .= " $campo";
+            } else {
+                $sql .= " , $campo";
+            }
+            $flag = 1;
+        }
+
+        $sql .= ") VALUES (";
+
+        $flag = 0;
+        $vetorDados = [];
+        foreach($dados as $campo => $valor){
+            if($flag ==0){
+                $sql .= " ?";
+            } else {
+                $sql .= " , ?";
+            }
+            $flag = 1;
+            $vetorDados[] =$valor;
+        }
+
+        $sql .= " )";
 
         $st = $conn->prepare($sql);
         
-        $st->execute([
-            $dados['nome'],
-            $dados['telefone'],
-            $dados['cpf']
-        ]);
+        $st->execute($vetorDados);
 
     }
 
-    function all(){
+    function all($tabela){
      
         $conn = $this->conn();
-        $sql = "SELECT * FROM aluno";
+        $sql = "SELECT * FROM $tabela";
 
         $st = $conn->prepare($sql);
         $st->execute();
@@ -62,21 +80,21 @@ class db {
         return $st->fetchAll(PDO::FETCH_CLASS);
     }
 
-    function destroy($id){
+    function destroy($tabela,$id){
        // var_dump($id);
        // exit;
         $conn = $this->conn();
-        $sql = "DELETE FROM aluno WHERE id = ?";
+        $sql = "DELETE FROM $tabela WHERE id = ?";
 
         $st = $conn->prepare($sql);
         $st->execute([$id]);
 
     }
 
-    function find($id){
+    function find($tabela,$id){
      
         $conn = $this->conn();
-        $sql = "SELECT * FROM aluno WHERE id = ?";
+        $sql = "SELECT * FROM $tabela WHERE id = ?";
 
         $st = $conn->prepare($sql);
         $st->execute([$id]);
@@ -84,31 +102,44 @@ class db {
         return $st->fetchObject();
     }
 
-    function update($dados){
+    function update($tabela, $dados){
      
+        $id = $dados['id'];
+        unset($dados['id']);
+
         $conn = $this->conn();
-        $sql = "UPDATE aluno SET
-              nome=?, telefone=?, cpf=?
-              WHERE id = ?";
+        $sql = "UPDATE $tabela SET ";
+
+        $flag = 0;
+        $vetorDados = [];
+        foreach($dados as $campo => $valor){
+            if($flag ==0){
+                $sql .= " $campo= ?";
+            } else {
+                $sql .= " , $campo= ?";
+            }
+            $flag = 1;
+            $vetorDados[] =$valor;
+        }
+             
+        $sql .= " WHERE id = $id";
+
+       // var_dump($sql,$vetorDados);
+       // exit;
 
         $st = $conn->prepare($sql);
-        $st->execute([
-            $dados['nome'],
-            $dados['telefone'],
-            $dados['cpf'],
-            $dados['id'],
-        ]);
+        $st->execute($vetorDados);
 
         return $st->fetchObject();
     }
 
-    function search($data){
+    function search($tabela, $data){
      
         $tipo = $data['tipo'];
         $valor = $data['valor'];
 
         $conn = $this->conn();
-        $sql = "SELECT * FROM aluno WHERE $tipo LIKE ?";
+        $sql = "SELECT * FROM $tabela WHERE $tipo LIKE ?";
 
         $st = $conn->prepare($sql);
         $st->execute(["%$valor%"]);
@@ -121,7 +152,7 @@ class db {
     function login($data){
      
         $conn = $this->conn();
-        $sql = "SELECT * FROM aluno WHERE cpf LIKE ?";
+        $sql = "SELECT * FROM usuario WHERE cpf LIKE ?";
 
         $st = $conn->prepare($sql);
         $st->execute([$data['cpf']]);
@@ -138,8 +169,5 @@ class db {
         
     }
 
-
-    
-    
 
 }
